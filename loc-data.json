@@ -99,9 +99,18 @@
     ]
   },
   "Markdown": {
-    "blanks": 272,
+    "blanks": 274,
     "children": {
       "Bash": [
+        {
+          "name": "loc-temp/Cyber-Projects/Network-Scanner/README.md",
+          "stats": {
+            "blanks": 0,
+            "blobs": {},
+            "code": 7,
+            "comments": 0
+          }
+        },
         {
           "name": "loc-temp/Cyber-Projects/Log-analyzer/README.md",
           "stats": {
@@ -111,35 +120,52 @@
             "comments": 0
           }
         }
+      ],
+      "PowerShell": [
+        {
+          "name": "loc-temp/Cyber-Projects/Network-Scanner/README.md",
+          "stats": {
+            "blanks": 0,
+            "blobs": {},
+            "code": 1,
+            "comments": 0
+          }
+        }
       ]
     },
     "code": 0,
-    "comments": 944,
+    "comments": 643,
     "inaccurate": false,
     "reports": [
       {
-        "name": "loc-temp/Cyber-Projects/Network-Scanner/README.md",
+        "name": "loc-temp/Cyber-Projects/Network-Scanner/documents/CHANGELOG.md",
         "stats": {
-          "blanks": 73,
+          "blanks": 32,
           "blobs": {},
           "code": 0,
-          "comments": 487
+          "comments": 75
         }
       },
       {
-        "name": "loc-temp/Cyber-Projects/Log-analyzer/README.md",
+        "name": "loc-temp/Cyber-Projects/Network-Scanner/README.md",
         "stats": {
-          "blanks": 17,
+          "blanks": 43,
           "blobs": {
             "Bash": {
               "blanks": 0,
               "blobs": {},
-              "code": 6,
+              "code": 7,
+              "comments": 0
+            },
+            "PowerShell": {
+              "blanks": 0,
+              "blobs": {},
+              "code": 1,
               "comments": 0
             }
           },
           "code": 0,
-          "comments": 25
+          "comments": 111
         }
       },
       {
@@ -194,6 +220,22 @@
           "blobs": {},
           "code": 0,
           "comments": 139
+        }
+      },
+      {
+        "name": "loc-temp/Cyber-Projects/Log-analyzer/README.md",
+        "stats": {
+          "blanks": 17,
+          "blobs": {
+            "Bash": {
+              "blanks": 0,
+              "blobs": {},
+              "code": 6,
+              "comments": 0
+            }
+          },
+          "code": 0,
+          "comments": 25
         }
       }
     ]
@@ -260,21 +302,21 @@
         }
       },
       {
-        "name": "loc-temp/Cyber-Projects/Log-analyzer/app.py",
-        "stats": {
-          "blanks": 5,
-          "blobs": {},
-          "code": 14,
-          "comments": 0
-        }
-      },
-      {
         "name": "loc-temp/Cyber-Projects/Network-Scanner/App.py",
         "stats": {
           "blanks": 32,
           "blobs": {},
           "code": 630,
           "comments": 10
+        }
+      },
+      {
+        "name": "loc-temp/Cyber-Projects/Log-analyzer/app.py",
+        "stats": {
+          "blanks": 5,
+          "blobs": {},
+          "code": 14,
+          "comments": 0
         }
       },
       {
@@ -395,20 +437,20 @@
         }
       },
       {
-        "name": "loc-temp/Cyber-Projects/Network-traffic-analyzer/src/netanal/constatns.py",
-        "stats": {
-          "blanks": 0,
-          "blobs": {},
-          "code": 2,
-          "comments": 0
-        }
-      },
-      {
         "name": "loc-temp/Cyber-Projects/Network-traffic-analyzer/src/netanal/filters.py",
         "stats": {
           "blanks": 4,
           "blobs": {},
           "code": 15,
+          "comments": 0
+        }
+      },
+      {
+        "name": "loc-temp/Cyber-Projects/Network-traffic-analyzer/src/netanal/constatns.py",
+        "stats": {
+          "blanks": 0,
+          "blobs": {},
+          "code": 2,
           "comments": 0
         }
       },
@@ -460,7 +502,7 @@
     ]
   },
   "Total": {
-    "blanks": 569,
+    "blanks": 571,
     "children": {
       "Html": [
         {
@@ -519,28 +561,34 @@
       ],
       "Markdown": [
         {
-          "name": "loc-temp/Cyber-Projects/Network-Scanner/README.md",
+          "name": "loc-temp/Cyber-Projects/Network-Scanner/documents/CHANGELOG.md",
           "stats": {
-            "blanks": 73,
+            "blanks": 32,
             "blobs": {},
             "code": 0,
-            "comments": 487
+            "comments": 75
           }
         },
         {
-          "name": "loc-temp/Cyber-Projects/Log-analyzer/README.md",
+          "name": "loc-temp/Cyber-Projects/Network-Scanner/README.md",
           "stats": {
-            "blanks": 17,
+            "blanks": 43,
             "blobs": {
               "Bash": {
                 "blanks": 0,
                 "blobs": {},
-                "code": 6,
+                "code": 7,
+                "comments": 0
+              },
+              "PowerShell": {
+                "blanks": 0,
+                "blobs": {},
+                "code": 1,
                 "comments": 0
               }
             },
             "code": 0,
-            "comments": 25
+            "comments": 111
           }
         },
         {
@@ -596,6 +644,22 @@
             "code": 0,
             "comments": 139
           }
+        },
+        {
+          "name": "loc-temp/Cyber-Projects/Log-analyzer/README.md",
+          "stats": {
+            "blanks": 17,
+            "blobs": {
+              "Bash": {
+                "blanks": 0,
+                "blobs": {},
+                "code": 6,
+                "comments": 0
+              }
+            },
+            "code": 0,
+            "comments": 25
+          }
         }
       ],
       "Python": [
@@ -618,21 +682,21 @@
           }
         },
         {
-          "name": "loc-temp/Cyber-Projects/Log-analyzer/app.py",
-          "stats": {
-            "blanks": 5,
-            "blobs": {},
-            "code": 14,
-            "comments": 0
-          }
-        },
-        {
           "name": "loc-temp/Cyber-Projects/Network-Scanner/App.py",
           "stats": {
             "blanks": 32,
             "blobs": {},
             "code": 630,
             "comments": 10
+          }
+        },
+        {
+          "name": "loc-temp/Cyber-Projects/Log-analyzer/app.py",
+          "stats": {
+            "blanks": 5,
+            "blobs": {},
+            "code": 14,
+            "comments": 0
           }
         },
         {
@@ -753,20 +817,20 @@
           }
         },
         {
-          "name": "loc-temp/Cyber-Projects/Network-traffic-analyzer/src/netanal/constatns.py",
-          "stats": {
-            "blanks": 0,
-            "blobs": {},
-            "code": 2,
-            "comments": 0
-          }
-        },
-        {
           "name": "loc-temp/Cyber-Projects/Network-traffic-analyzer/src/netanal/filters.py",
           "stats": {
             "blanks": 4,
             "blobs": {},
             "code": 15,
+            "comments": 0
+          }
+        },
+        {
+          "name": "loc-temp/Cyber-Projects/Network-traffic-analyzer/src/netanal/constatns.py",
+          "stats": {
+            "blanks": 0,
+            "blobs": {},
+            "code": 2,
             "comments": 0
           }
         },
@@ -840,7 +904,7 @@
       ]
     },
     "code": 1868,
-    "comments": 1141,
+    "comments": 840,
     "inaccurate": false,
     "reports": [],
     "files": 77
