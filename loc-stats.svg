@@ -1,7 +1,7 @@
 
 <svg width="800" height="320" xmlns="http://www.w3.org/2000/svg">
   <rect width="800" height="320" fill="#000000" rx="10"/>
-  <text x="40" y="55" font-family="monospace" font-size="32" fill="#ffffff">1,891</text>
+  <text x="40" y="55" font-family="monospace" font-size="32" fill="#ffffff">1,910</text>
   <text x="40" y="80" font-family="monospace" font-size="14" fill="#ffffff">LINES OF CODE</text>
   <text x="760" y="55" font-family="monospace" font-size="24" fill="#ffffff" text-anchor="end">82</text>
   <text x="760" y="75" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="end">FILES</text>
@@ -11,25 +11,25 @@
   <text x="40" y="160" font-family="monospace" font-size="13" fill="#ffffff">Python</text>
   <rect x="180" y="148" width="450" height="16" fill="#21262d" rx="4"/>
   <rect x="180" y="148" width="450.0" height="16" fill="#3572A5" rx="4"/>
-  <text x="650" y="160" font-family="monospace" font-size="12" fill="#ffffff">1,209</text>
+  <text x="650" y="160" font-family="monospace" font-size="12" fill="#ffffff">1,228</text>
 
   <text x="40" y="185" font-family="monospace" font-size="13" fill="#ffffff">JavaScript</text>
   <rect x="180" y="173" width="450" height="16" fill="#21262d" rx="4"/>
-  <rect x="180" y="173" width="140.69478908188586" height="16" fill="#ff4444" rx="4"/>
+  <rect x="180" y="173" width="138.51791530944627" height="16" fill="#ff4444" rx="4"/>
   <text x="650" y="185" font-family="monospace" font-size="12" fill="#ffffff">378</text>
 
   <text x="40" y="210" font-family="monospace" font-size="13" fill="#ffffff">TOML</text>
   <rect x="180" y="198" width="450" height="16" fill="#21262d" rx="4"/>
-  <rect x="180" y="198" width="79.65260545905707" height="16" fill="#FF0000" rx="4"/>
+  <rect x="180" y="198" width="78.42019543973942" height="16" fill="#FF0000" rx="4"/>
   <text x="650" y="210" font-family="monospace" font-size="12" fill="#ffffff">214</text>
 
   <text x="40" y="235" font-family="monospace" font-size="13" fill="#ffffff">HTML</text>
   <rect x="180" y="223" width="450" height="16" fill="#21262d" rx="4"/>
-  <rect x="180" y="223" width="32.75434243176179" height="16" fill="#E34C26" rx="4"/>
+  <rect x="180" y="223" width="32.24755700325733" height="16" fill="#E34C26" rx="4"/>
   <text x="650" y="235" font-family="monospace" font-size="12" fill="#ffffff">88</text>
 
   <text x="40" y="260" font-family="monospace" font-size="13" fill="#ffffff">INI</text>
   <rect x="180" y="248" width="450" height="16" fill="#21262d" rx="4"/>
-  <rect x="180" y="248" width="0.7444168734491315" height="16" fill="#FFFFFF" rx="4"/>
+  <rect x="180" y="248" width="0.7328990228013029" height="16" fill="#FFFFFF" rx="4"/>
   <text x="650" y="260" font-family="monospace" font-size="12" fill="#ffffff">2</text>
 </svg>
