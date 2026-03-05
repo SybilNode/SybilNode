@@ -26,7 +26,13 @@ Cybersecurity student • Ethical hacker • Always building & learning
 
 ---
 
-# GitHub Stats:
+## 📈 GitHub Stats
+<p align="center">
+  <img src="./profile/stats.svg" height="165" />
+  <img src="./profile/top-langs.svg" height="165" />
+</p>
+
+---
 
 <!-- Streak Stats (Dark Theme Only) -->
 <a href="https://git.io/streak-stats">
