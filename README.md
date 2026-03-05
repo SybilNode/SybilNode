@@ -4,13 +4,29 @@
 
 Cybersecurity student • Ethical hacker • Always building & learning
 
+<table>
+<tr>
+<td width="50%" align="center">
+  <img src="./profile/stats.svg" />
+</td>
+<td width="50%" align="center">
+  <a href="https://git.io/streak-stats">
+    <img src="https://streak-stats.demolab.com?user=zappybird&theme=dark&hide_border=true&border_radius=6&date_format=j%20M%5B%20Y%5D"
+      alt="GitHub Streak" />
+  </a>
+</td>
+</tr>
+</table>
+
+---
+
 <!-- LOC-STATS:START -->
 <img src="./loc-stats.svg" alt="LOC Stats" width="84%" />
 <!-- LOC-STATS:END -->
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 <p>
   <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" />
@@ -27,21 +43,12 @@ Cybersecurity student • Ethical hacker • Always building & learning
   <img src="https://img.shields.io/badge/CMake-%23008FBA.svg?style=for-the-badge&logo=cmake&logoColor=white" />
 </p>
 
----
-
-## 📈 GitHub Stats
-
 <table>
 <tr>
 <td width="50%" align="center">
   <img src="./profile/stats.svg" />
 </td>
 <td width="50%" align="center">
-  <img src="./profile/top-langs.svg" />
-</td>
-</tr>
-<tr>
-<td colspan="2" align="center">
   <a href="https://git.io/streak-stats">
     <img src="https://streak-stats.demolab.com?user=zappybird&theme=dark&hide_border=true&border_radius=6&date_format=j%20M%5B%20Y%5D"
       alt="GitHub Streak" />
@@ -50,7 +57,9 @@ Cybersecurity student • Ethical hacker • Always building & learning
 </tr>
 </table>
 
-## 🐍 Contribution Snake
+---
+
+## Contribution Snake
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./dist/github-snake-dark.svg" />
