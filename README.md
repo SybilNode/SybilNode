@@ -1,4 +1,3 @@
-# About Me:
 <div align="center">
 
 # Hi, I'm Carlos (zappybird)
@@ -6,7 +5,7 @@
 Cybersecurity student • Ethical hacker • Always building & learning
 
 <!-- LOC-STATS:START -->
-<img src="./loc-stats.svg" alt="LOC Stats" width="100%" />
+<img src="./loc-stats.svg" alt="LOC Stats" width="84%" />
 <!-- LOC-STATS:END -->
 
 ---
@@ -32,15 +31,24 @@ Cybersecurity student • Ethical hacker • Always building & learning
 
 ## 📈 GitHub Stats
 
-<img src="./profile/stats.svg" height="165" />
-<img src="./profile/top-langs.svg" height="165" />
-<br/>
-<a href="https://git.io/streak-stats">
-  <img src="https://streak-stats.demolab.com?user=zappybird&theme=dark&hide_border=true&border_radius=6&date_format=j%20M%5B%20Y%5D"
-    alt="GitHub Streak" height="165" />
-</a>
-
----
+<table>
+<tr>
+<td width="50%" align="center">
+  <img src="./profile/stats.svg" />
+</td>
+<td width="50%" align="center">
+  <img src="./profile/top-langs.svg" />
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center">
+  <a href="https://git.io/streak-stats">
+    <img src="https://streak-stats.demolab.com?user=zappybird&theme=dark&hide_border=true&border_radius=6&date_format=j%20M%5B%20Y%5D"
+      alt="GitHub Streak" />
+  </a>
+</td>
+</tr>
+</table>
 
 ## 🐍 Contribution Snake
 
