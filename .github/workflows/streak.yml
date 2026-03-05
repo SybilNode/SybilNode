@@ -1,14 +1,29 @@
-name: Generate Streak Stats (Disabled)
+name: Update Streak
+
+permissions:
+  contents: write
 
 on:
+  schedule:
+    - cron: "0 4 * * *"
   workflow_dispatch:
 
 jobs:
-  disabled:
+  streak:
     runs-on: ubuntu-latest
     steps:
-      - name: Notice
+      - uses: actions/checkout@v4
+
+      - name: Generate streak card
+        uses: readme-tools/github-readme-streak-stats-action@v1
+        with:
+          path: profile/streak.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit streak card
         run: |
-          echo "The original streak action (DenverCoder1/github-readme-streak-stats) no longer supports GitHub Actions."
-          echo "Streak stats must now be displayed using the external URL:"
-          echo "https://streak-stats.demolab.com?user=zappybird"
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add profile/streak.svg
+          git commit -m "Update streak card" || exit 0
+          git push
