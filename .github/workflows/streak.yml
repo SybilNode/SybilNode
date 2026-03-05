@@ -1,36 +1,32 @@
-name: Update Streak
+name: Generate Streak Stats
 
 permissions:
   contents: write
 
 on:
   schedule:
-    - cron: "0 4 * * *"
+    - cron: "0 */12 * * *"
   workflow_dispatch:
 
 jobs:
-  streak:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Generate streak card
-        uses: lowlighter/metrics@latest
+      - name: Generate Streak Stats
+        uses: DenverCoder1/github-readme-streak-stats@main
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          base: ""
-          filename: profile/streak.svg
-          plugin_streak: yes
+          token: ${{ secrets.PAT_1 }}
+          user: zappybird
+          theme: onedark
+          hide_border: true
+          file: profile/streak.svg
 
-      - name: Commit changes
+      - name: Commit streak.svg
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git pull --rebase origin main
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
           git add profile/streak.svg
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update streak card"
+          git commit -m "Update streak" || exit 0
           git push
-
-
