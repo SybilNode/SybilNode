@@ -23,10 +23,7 @@ jobs:
           hide_border: true
           file: profile/streak.svg
 
-      - name: Commit streak.svg
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@users.noreply.github.com"
-          git add profile/streak.svg
-          git commit -m "Update streak" || exit 0
-          git push
+      - name: Generate Streak Stats
+      run: |
+        mkdir -p profile
+        curl -o profile/streak.svg "https://streak-stats.demolab.com?user=zappybird&theme=onedark&hide_border=true"
