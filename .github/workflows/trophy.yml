@@ -18,7 +18,7 @@ jobs:
       - name: Generate Trophy
         uses: ryo-ma/github-profile-trophy@main
         with:
-          username: zappybird
+          username: SybilNode
           output_path: profile/trophy.svg
 
       - name: Commit trophy.svg

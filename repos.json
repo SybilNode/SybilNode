@@ -1,6 +1,6 @@
 {
   "repos": [
-    "zappybird/Cyber-Projects"
+    "SybilNode/Cyber-Projects"
   ],
   "exclude_languages": ["Markdown", "Text", "json", "yaml"]
 }
