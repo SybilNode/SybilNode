@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# ⒸAngelaMos | 2025 | CertGames.com
 import sys
 import json
 from pathlib import Path
@@ -16,8 +15,9 @@ LANGUAGE_COLORS = {
     "Rust":       "#DEA584",
     "Go":         "#00ADD8",
     "Shell":      "#89E051",
-    "TOML":       "#FF0000",
-    "INI":        "#FFFFFF",
+    "Bash":       "#89E051",
+    "TOML":       "#FF6B6B",
+    "INI":        "#AAAAAA",
     "JSON":       "#292929",
     "Markdown":   "#083FA1",
 }
@@ -28,67 +28,46 @@ def format_number(num):
     return f"{num:,}"
 
 
-def merge_repos(loc_data):
-    """
-    Handles Tokei multi-repo JSON where top-level keys are repo/directory names:
-    {
-      "Repo1": { "Python": { "code": X, ... }, "Total": { "code": Y, ... } },
-      "Repo2": { ... }
-    }
-    Merges into a single flat dict:
-    {
-      "Total": { "code": X, "files": Y },
-      "Python": { "code": A },
-      ...
-    }
-    Falls back gracefully if structure is unexpected.
-    """
-    combined = {"Total": {"code": 0, "files": 0}}
-    languages = {}
-
-    for repo_name, repo_data in loc_data.items():
-        if not isinstance(repo_data, dict):
-            print(f"Warning: skipping unexpected entry '{repo_name}'", file=sys.stderr)
-            continue
-
-        # Merge totals
-        total = repo_data.get("Total", {})
-        combined["Total"]["code"]  += int(total.get("code",  0))
-        combined["Total"]["files"] += int(total.get("files", 0))
-
-        # Merge per-language stats
-        for lang, stats in repo_data.items():
-            if lang == "Total":
-                continue
-            if isinstance(stats, dict):
-                code = int(stats.get("code", 0))
-                if code > 0:
-                    languages[lang] = languages.get(lang, 0) + code
-
-    for lang, code in languages.items():
-        combined[lang] = {"code": code}
-
-    return combined
+def load_exclude_languages():
+    """Read excluded languages from repos.json so the SVG respects the same
+    filter list used during counting."""
+    repos_file = Path("repos.json")
+    if not repos_file.exists():
+        return set()
+    with open(repos_file) as f:
+        config = json.load(f)
+    # Normalise to lowercase for case-insensitive comparison
+    return {lang.lower() for lang in config.get("exclude_languages", [])}
 
 
-def generate_svg(loc_data):
+def generate_svg(loc_data, exclude_languages=None):
+    if exclude_languages is None:
+        exclude_languages = set()
+
     total_code  = int(loc_data.get("Total", {}).get("code",  0))
     total_files = int(loc_data.get("Total", {}).get("files", 0))
 
     if total_code == 0:
         print("Warning: total code count is 0 — SVG will be empty", file=sys.stderr)
 
-    # Extract and sort languages
-    languages = {
-        lang: stats["code"]
-        for lang, stats in loc_data.items()
-        if lang != "Total" and isinstance(stats, dict) and "code" in stats and stats["code"] > 0
-    }
+    # Extract, filter, and sort languages
+    # FIX: apply exclude_languages from repos.json so filtered langs don't
+    # appear in the SVG (previously exclude_languages was defined in repos.json
+    # but never read by this script).
+    languages = {}
+    for lang, stats in loc_data.items():
+        if lang == "Total":
+            continue
+        if lang.lower() in exclude_languages:
+            print(f"Debug: excluding '{lang}' per repos.json", file=sys.stderr)
+            continue
+        if isinstance(stats, dict) and "code" in stats and stats["code"] > 0:
+            languages[lang] = stats["code"]
 
     top_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)[:6]
 
     if not top_langs:
-        print("Error: no language data found — cannot generate SVG", file=sys.stderr)
+        print("Error: no language data found after filtering — cannot generate SVG", file=sys.stderr)
         sys.exit(1)
 
     # Dynamic height based on actual number of language rows
@@ -156,21 +135,22 @@ def main():
         print("Error: loc-data.json has unexpected structure or is empty", file=sys.stderr)
         sys.exit(1)
 
-    # Debug: show top-level keys so you can verify Tokei's output shape
-    print(f"Debug: top-level keys in loc-data.json: {list(raw_data.keys())[:10]}", file=sys.stderr)
+    print(f"Debug: top-level keys: {list(raw_data.keys())[:10]}", file=sys.stderr)
 
-    # Detect flat (single-run) vs multi-repo format
+    # count-loc.sh now always produces flat Tokei output (languages + Total at
+    # top level), so we no longer need the multi-repo merge path.
     if "Total" not in raw_data:
-        print("Debug: 'Total' not found at top level — treating as multi-repo format", file=sys.stderr)
-        merged = merge_repos(raw_data)
-    else:
-        print("Debug: flat Tokei output detected", file=sys.stderr)
-        merged = raw_data
+        print("Error: 'Total' key missing — loc-data.json may be malformed.", file=sys.stderr)
+        sys.exit(1)
 
-    print(f"Debug: total code={merged.get('Total', {}).get('code', 0)}, "
-          f"files={merged.get('Total', {}).get('files', 0)}", file=sys.stderr)
+    print(f"Debug: total code={raw_data['Total'].get('code', 0)}, "
+          f"files={raw_data['Total'].get('files', 0)}", file=sys.stderr)
 
-    svg = generate_svg(merged)
+    # FIX: load exclude list from repos.json and pass it in
+    exclude_languages = load_exclude_languages()
+    print(f"Debug: excluding languages: {exclude_languages}", file=sys.stderr)
+
+    svg = generate_svg(raw_data, exclude_languages)
 
     with open("loc-stats.svg", "w") as f:
         f.write(svg)

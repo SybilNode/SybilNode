@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Install Tokei
         run: |
           TOKEI_VERSION="12.1.2"
@@ -23,26 +24,28 @@ jobs:
           tar xzf tokei.tar.gz
           sudo mv tokei /usr/local/bin/
           tokei --version
+
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+
       - name: Make scripts executable
-        run: chmod +x scripts/count-loc.sh
-      - name: Count lines of code across multiple repos
-        run: |
-          mkdir all-code
-          cd all-code
-          # Clone each repo listed in repos.txt
-          while read repo; do
-            git clone --depth 1 "$repo"
-          done < ../repos.txt
-          # Run Tokei on everything
-          tokei . --output json > ../loc-data.json
+        # FIX: scripts live at repo root, not in a scripts/ subdirectory
+        run: chmod +x count-loc.sh
+
+      - name: Count lines of code across repos
+        # FIX: run count-loc.sh from repo root so it can find repos.json
+        # and writes loc-data.json to the correct location
+        run: bash count-loc.sh
+
       - name: Generate SVG
-        run: python3 scripts/generate-svg.py
+        # FIX: generate-svg.py is at root, not scripts/
+        run: python3 generate-svg.py
+
       - name: Update README with SVG
         run: |
           if grep -q "<!-- LOC-STATS:START -->" README.md; then
@@ -50,6 +53,7 @@ jobs:
           else
             echo "Warning: LOC-STATS markers not found in README.md"
           fi
+
       - name: Commit changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -57,5 +61,4 @@ jobs:
           git pull --rebase origin main
           git add loc-stats.svg loc-data.json README.md
           git diff --quiet && git diff --staged --quiet || git commit -m "chore: update LOC statistics [skip ci]"
-          git push
-
+          git push origin main
