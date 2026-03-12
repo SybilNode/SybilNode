@@ -8,30 +8,73 @@ from pathlib import Path
 #  Custom Language Colors
 # ============================
 LANGUAGE_COLORS = {
-    "Python": "#3572A5",   # blue
-    "TOML": "#FF0000",     # red
-    "HTML": "#E34C26",     # orange
-    "INI": "#FFFFFF",      # white
+    "Python": "#3572A5",
+    "TOML": "#FF0000",
+    "HTML": "#E34C26",
+    "INI": "#FFFFFF",
 }
 
-DEFAULT_COLOR = "#ff4444"  # fallback (your original red)
+DEFAULT_COLOR = "#ff4444"
 
 def format_number(num):
     return f"{num:,}"
+
+def merge_repos(loc_data):
+    """
+    Tokei multi-repo JSON looks like:
+    {
+      "Repo1": { "Python": {...}, "Total": {...} },
+      "Repo2": { "JavaScript": {...}, "Total": {...} }
+    }
+
+    We need to merge all repos into:
+    {
+      "Total": { "code": X, "files": Y },
+      "Python": { "code": A },
+      "JavaScript": { "code": B },
+      ...
+    }
+    """
+
+    combined = {"Total": {"code": 0, "files": 0}}
+    languages = {}
+
+    for repo_name, repo_data in loc_data.items():
+        if not isinstance(repo_data, dict):
+            continue
+
+        # Merge totals
+        total = repo_data.get("Total", {})
+        combined["Total"]["code"] += int(total.get("code", 0))
+        combined["Total"]["files"] += int(total.get("files", 0))
+
+        # Merge languages
+        for lang, stats in repo_data.items():
+            if lang == "Total":
+                continue
+            if isinstance(stats, dict):
+                code = int(stats.get("code", 0))
+                if code > 0:
+                    languages[lang] = languages.get(lang, 0) + code
+
+    # Add merged languages to combined dict
+    for lang, code in languages.items():
+        combined[lang] = {"code": code}
+
+    return combined
 
 def generate_svg(loc_data):
     total_code = int(loc_data.get('Total', {}).get('code', 0))
     total_files = int(loc_data.get('Total', {}).get('files', 0))
 
-    languages = {}
-    for lang, stats in loc_data.items():
-        if lang == "Total":
-            continue
-        if isinstance(stats, dict):
-            code = int(stats.get("code", 0))
-            if code > 0:
-                languages[lang] = code
+    # Extract languages
+    languages = {
+        lang: stats["code"]
+        for lang, stats in loc_data.items()
+        if lang != "Total" and isinstance(stats, dict) and "code" in stats
+    }
 
+    # Sort top languages
     top_langs = sorted(languages.items(), key=lambda x: x[1], reverse=True)[:6]
 
     svg = f"""
@@ -51,8 +94,6 @@ def generate_svg(loc_data):
 
     for lang, code in top_langs:
         width = (code / max_code) * max_width
-
-        # Pick correct color
         bar_color = LANGUAGE_COLORS.get(lang, DEFAULT_COLOR)
 
         svg += f"""
@@ -73,9 +114,16 @@ def main():
         sys.exit(1)
 
     with open(loc_file) as f:
-        data = json.load(f)
+        raw_data = json.load(f)
 
-    svg = generate_svg(data)
+    # Detect if multi-repo format
+    if "Total" not in raw_data:
+        merged = merge_repos(raw_data)
+    else:
+        merged = raw_data
+
+    svg = generate_svg(merged)
+
     with open("loc-stats.svg", "w") as f:
         f.write(svg)
 
@@ -83,4 +131,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
