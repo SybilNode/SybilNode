@@ -16,13 +16,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Generate streak card
-        uses: lowlighter/metrics@latest
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          base: ""
-          filename: profile/streak.svg
-          plugin_streak: yes
+      - name: Download streak card SVG
+        run: |
+          curl -fsSL \
+            "https://streak-stats.demolab.com?user=SybilNode&theme=dark&hide_border=true&border_radius=6&date_format=j%20M%5B%20Y%5D" \
+            -o profile/streak.svg
+          if [ ! -s profile/streak.svg ]; then
+            echo "ERROR: streak.svg is empty or failed to download" >&2
+            exit 1
+          fi
+          echo "streak.svg downloaded successfully ($(wc -c < profile/streak.svg) bytes)"
 
       - name: Commit streak card
         run: |
