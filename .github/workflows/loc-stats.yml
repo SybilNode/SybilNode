@@ -1,8 +1,6 @@
 name: Update LOC Stats
-
 permissions:
   contents: write
-
 on:
   push:
     branches:
@@ -10,12 +8,9 @@ on:
   schedule:
     - cron: "0 0 * * *"
   workflow_dispatch:
-
 jobs:
   update-loc:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4.2.2
@@ -39,16 +34,29 @@ jobs:
           python-version: '3.11'
 
       - name: Make scripts executable
+        # FIX: scripts live at repo root, not in a scripts/ subdirectory
         run: chmod +x count-loc.sh
 
       - name: Count lines of code across repos
         # FIX: run count-loc.sh from repo root so it can find repos.json
         # and writes loc-data.json to the correct location
-        run: bash count-loc.sh
+        run: |
+          bash count-loc.sh
+          if [ ! -s loc-data.json ]; then
+            echo "ERROR: loc-data.json is missing or empty after count-loc.sh" >&2
+            exit 1
+          fi
+          echo "loc-data.json generated successfully ($(wc -c < loc-data.json) bytes)"
 
       - name: Generate SVG
         # FIX: generate-svg.py is at root, not scripts/
-        run: python3 generate-svg.py
+        run: |
+          python3 generate-svg.py
+          if [ ! -s loc-stats.svg ]; then
+            echo "ERROR: loc-stats.svg is missing or empty after generate-svg.py" >&2
+            exit 1
+          fi
+          echo "loc-stats.svg generated successfully"
 
       - name: Update README with SVG
         run: |
@@ -65,4 +73,4 @@ jobs:
           git pull --rebase origin main
           git add loc-stats.svg loc-data.json README.md
           git diff --quiet && git diff --staged --quiet || git commit -m "chore: update LOC statistics [skip ci]"
-          git push
+          git push origin main
