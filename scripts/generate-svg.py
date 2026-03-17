@@ -7,21 +7,33 @@ from pathlib import Path
 #  Custom Language Colors
 # ============================
 LANGUAGE_COLORS = {
-    "Python":     "#3572A5",
-    "JavaScript": "#F1E05A",
-    "TypeScript": "#2B7489",
-    "HTML":       "#E34C26",
-    "CSS":        "#563D7C",
-    "Rust":       "#DEA584",
-    "Go":         "#00ADD8",
-    "Shell":      "#89E051",
-    "Bash":       "#89E051",
-    "TOML":       "#FF6B6B",
-    "INI":        "#AAAAAA",
-    "JSON":       "#292929",
-    "Markdown":   "#083FA1",
+    "Python":      "#3572A5",
+    "JavaScript":  "#F1E05A",
+    "TypeScript":  "#2B7489",
+    "HTML":        "#E34C26",
+    "CSS":         "#563D7C",
+    "Rust":        "#DEA584",
+    "Go":          "#00ADD8",
+    "Shell":       "#89E051",
+    "Bash":        "#89E051",
+    "TOML":        "#9C4221",
+    "INI":         "#AAAAAA",
+    "JSON":        "#292929",
+    "Markdown":    "#083FA1",
+    # Languages in your tech stack
+    "C":           "#555599",
+    "C++":         "#F34B7D",
+    "C#":          "#178600",
+    "Java":        "#B07219",
+    "PHP":         "#4F5D95",
+    "R":           "#276DC3",
+    "PowerShell":  "#5391FE",
+    "CMake":       "#DA3434",
+    "Ruby":        "#701516",
+    "Kotlin":      "#A97BFF",
+    "Swift":       "#F05138",
 }
-DEFAULT_COLOR = "#ff4444"
+DEFAULT_COLOR = "#888888"
 
 
 def format_number(num):

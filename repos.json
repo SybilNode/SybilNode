@@ -2,5 +2,5 @@
   "repos": [
     "SybilNode/Cyber-Projects"
   ],
-  "exclude_languages": ["Markdown", "Text", "json", "yaml"]
+  "exclude_languages": ["Markdown", "Plain Text", "JSON", "YAML", "TOML", "INI"]
 }

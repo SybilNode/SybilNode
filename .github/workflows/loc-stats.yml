@@ -6,7 +6,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "0 0 * * 0"
+    - cron: "0 0 * * *"
   workflow_dispatch:
 jobs:
   update-loc:
@@ -40,11 +40,23 @@ jobs:
       - name: Count lines of code across repos
         # FIX: run count-loc.sh from repo root so it can find repos.json
         # and writes loc-data.json to the correct location
-        run: bash count-loc.sh
+        run: |
+          bash count-loc.sh
+          if [ ! -s loc-data.json ]; then
+            echo "ERROR: loc-data.json is missing or empty after count-loc.sh" >&2
+            exit 1
+          fi
+          echo "loc-data.json generated successfully ($(wc -c < loc-data.json) bytes)"
 
       - name: Generate SVG
         # FIX: generate-svg.py is at root, not scripts/
-        run: python3 generate-svg.py
+        run: |
+          python3 generate-svg.py
+          if [ ! -s loc-stats.svg ]; then
+            echo "ERROR: loc-stats.svg is missing or empty after generate-svg.py" >&2
+            exit 1
+          fi
+          echo "loc-stats.svg generated successfully"
 
       - name: Update README with SVG
         run: |
