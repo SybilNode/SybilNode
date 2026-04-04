@@ -13,9 +13,8 @@ echo "Cloning repositories..."
 for REPO in $REPOS; do
     echo "Cloning $REPO..."
     TARGET="$WORKDIR/$(basename $REPO)"
-    git clone --depth 1 "https://${{ secrets.GITHUB_TOKEN }}@github.com/$REPO.git" "$TARGET"
-done
-
+    git clone --depth 1 "https://github.com/$REPO.git" "$TARGET"    
+    
 echo "Running Tokei across all cloned repos..."
 # FIX: run tokei once across the entire workdir so it produces a single flat
 # JSON (languages as top-level keys + a "Total" key).  The old approach of

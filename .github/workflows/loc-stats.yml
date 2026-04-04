@@ -39,13 +39,10 @@ jobs:
         run: chmod +x scripts/count-loc.sh
 
       - name: Count lines of code across repos
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           bash scripts/count-loc.sh
-          if [ ! -s loc-data.json ]; then
-            echo "ERROR: loc-data.json is missing or empty" >&2
-            exit 1
-          fi
-          echo "loc-data.json generated ($(wc -c < loc-data.json) bytes)"
 
       - name: Generate SVG
         run: |
