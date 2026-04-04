@@ -1,6 +1,7 @@
 {
   "repos": [
-    "SybilNode/Cyber-Projects"
+    "SybilNode/Cyber-Projects",
+    "SybilNode/SybilNode"
   ],
   "exclude_languages": ["Markdown", "Plain Text", "JSON", "YAML", "TOML", "INI"]
 }
