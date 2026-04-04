@@ -43,10 +43,20 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           bash scripts/count-loc.sh
+          if [ ! -s loc-data.json ]; then
+            echo "ERROR: loc-data.json is missing or empty" >&2
+            exit 1
+          fi
+          echo "loc-data.json generated ($(wc -c < loc-data.json) bytes)"
 
       - name: Generate SVG
         run: |
           python3 scripts/generate-svg.py
+          if [ ! -s loc-stats.svg ]; then
+            echo "ERROR: loc-stats.svg is missing or empty" >&2
+            exit 1
+          fi
+          echo "loc-stats.svg generated successfully"
 
       - name: Update README with SVG
         run: |
