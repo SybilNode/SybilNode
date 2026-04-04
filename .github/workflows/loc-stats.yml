@@ -62,7 +62,10 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git pull --rebase origin main
           git add loc-stats.svg loc-data.json README.md
-          git diff --quiet && git diff --staged --quiet || git commit -m "chore: update LOC statistics [skip ci]"
+          git stash
+          git pull --rebase origin main
+          git stash pop
+          git add loc-stats.svg loc-data.json README.md
+          git diff --staged --quiet || git commit -m "chore: update LOC statistics [skip ci]"
           git push origin main
