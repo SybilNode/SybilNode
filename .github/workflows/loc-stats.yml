@@ -36,22 +36,18 @@ jobs:
           python-version: '3.11'
 
       - name: Make scripts executable
-        # FIX: scripts live at repo root, not in a scripts/ subdirectory
-        run: chmod +x count-loc.sh
+        run: chmod +x scripts/count-loc.sh
 
       - name: Count lines of code across repos
-        # FIX: run count-loc.sh from repo root so it can find repos.json
-        # and writes loc-data.json to the correct location
         run: |
-          bash count-loc.sh
+          bash scripts/count-loc.sh
           if [ ! -s loc-data.json ]; then
-            echo "ERROR: loc-data.json is missing or empty after count-loc.sh" >&2
+            echo "ERROR: loc-data.json is missing or empty" >&2
             exit 1
           fi
-          echo "loc-data.json generated successfully ($(wc -c < loc-data.json) bytes)"
+          echo "loc-data.json generated ($(wc -c < loc-data.json) bytes)"
 
       - name: Generate SVG
-        # FIX: generate-svg.py is at root, not scripts/
         run: |
           python3 generate-svg.py
           if [ ! -s loc-stats.svg ]; then
@@ -62,11 +58,13 @@ jobs:
 
       - name: Update README with SVG
         run: |
-          if grep -q "<!-- LOC-STATS:START -->" README.md; then
-            sed -i '/<!-- LOC-STATS:START -->/,/<!-- LOC-STATS:END -->/c\<!-- LOC-STATS:START -->\n<img src="./loc-stats.svg" alt="LOC Stats" width="84%" />\n<!-- LOC-STATS:END -->' README.md
-          else
-            echo "Warning: LOC-STATS markers not found in README.md"
-          fi
+          python3 -c "
+          import re, pathlib
+          readme = pathlib.Path('README.md').read_text()
+          new_block = '<!-- LOC-STATS:START -->\n<img src=\"./loc-stats.svg\" alt=\"LOC Stats\" width=\"84%\" />\n<!-- LOC-STATS:END -->'
+          updated = re.sub(r'<!-- LOC-STATS:START -->.*?<!-- LOC-STATS:END -->', new_block, readme, flags=re.DOTALL)
+          pathlib.Path('README.md').write_text(updated)
+          "
 
       - name: Commit changes
         run: |
