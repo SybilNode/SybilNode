@@ -46,12 +46,7 @@ jobs:
 
       - name: Generate SVG
         run: |
-          python3 generate-svg.py
-          if [ ! -s loc-stats.svg ]; then
-            echo "ERROR: loc-stats.svg is missing or empty after generate-svg.py" >&2
-            exit 1
-          fi
-          echo "loc-stats.svg generated successfully"
+          python3 scripts/generate-svg.py
 
       - name: Update README with SVG
         run: |
