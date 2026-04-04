@@ -1,35 +1,33 @@
+<svg width="800" height="284" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="284" fill="#000000" rx="10"/>
 
-<svg width="800" height="320" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="320" fill="#000000" rx="10"/>
-  <text x="40" y="55" font-family="monospace" font-size="32" fill="#ffffff">1,940</text>
-  <text x="40" y="80" font-family="monospace" font-size="14" fill="#ffffff">LINES OF CODE</text>
-  <text x="760" y="55" font-family="monospace" font-size="24" fill="#ffffff" text-anchor="end">85</text>
-  <text x="760" y="75" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="end">FILES</text>
+  <!-- Total lines -->
+  <text x="40" y="55" font-family="monospace" font-size="32" fill="#ffffff">2,094</text>
+  <text x="40" y="78" font-family="monospace" font-size="13" fill="#aaaaaa">LINES OF CODE</text>
+
+  <!-- Total files -->
+  <text x="760" y="55" font-family="monospace" font-size="24" fill="#ffffff" text-anchor="end">0</text>
+  <text x="760" y="75" font-family="monospace" font-size="12" fill="#aaaaaa" text-anchor="end">FILES</text>
+
+  <!-- Divider -->
   <line x1="30" y1="100" x2="770" y2="100" stroke="#30363d" stroke-width="1"/>
-  <text x="40" y="130" font-family="monospace" font-size="16" fill="#ff4444">TOP LANGUAGES</text>
 
-  <text x="40" y="160" font-family="monospace" font-size="13" fill="#ffffff">Python</text>
-  <rect x="180" y="148" width="450" height="16" fill="#21262d" rx="4"/>
-  <rect x="180" y="148" width="450.0" height="16" fill="#3572A5" rx="4"/>
-  <text x="650" y="160" font-family="monospace" font-size="12" fill="#ffffff">1,258</text>
+  <!-- Section heading -->
+  <text x="40" y="132" font-family="monospace" font-size="15" fill="#ff4444">TOP LANGUAGES</text>
 
-  <text x="40" y="185" font-family="monospace" font-size="13" fill="#ffffff">JavaScript</text>
-  <rect x="180" y="173" width="450" height="16" fill="#21262d" rx="4"/>
-  <rect x="180" y="173" width="135.214626391097" height="16" fill="#ff4444" rx="4"/>
-  <text x="650" y="185" font-family="monospace" font-size="12" fill="#ffffff">378</text>
+  <text x="40" y="170" font-family="monospace" font-size="13" fill="#ffffff">Python</text>
+  <rect x="180" y="157" width="450" height="16" fill="#21262d" rx="4"/>
+  <rect x="180" y="157" width="450.0" height="16" fill="#3572A5" rx="4"/>
+  <text x="650" y="170" font-family="monospace" font-size="12" fill="#cccccc">1,412</text>
 
-  <text x="40" y="210" font-family="monospace" font-size="13" fill="#ffffff">TOML</text>
-  <rect x="180" y="198" width="450" height="16" fill="#21262d" rx="4"/>
-  <rect x="180" y="198" width="76.55007949125596" height="16" fill="#FF0000" rx="4"/>
-  <text x="650" y="210" font-family="monospace" font-size="12" fill="#ffffff">214</text>
+  <text x="40" y="198" font-family="monospace" font-size="13" fill="#ffffff">JavaScript</text>
+  <rect x="180" y="185" width="450" height="16" fill="#21262d" rx="4"/>
+  <rect x="180" y="185" width="120.5" height="16" fill="#F1E05A" rx="4"/>
+  <text x="650" y="198" font-family="monospace" font-size="12" fill="#cccccc">378</text>
 
-  <text x="40" y="235" font-family="monospace" font-size="13" fill="#ffffff">HTML</text>
-  <rect x="180" y="223" width="450" height="16" fill="#21262d" rx="4"/>
-  <rect x="180" y="223" width="31.4785373608903" height="16" fill="#E34C26" rx="4"/>
-  <text x="650" y="235" font-family="monospace" font-size="12" fill="#ffffff">88</text>
+  <text x="40" y="226" font-family="monospace" font-size="13" fill="#ffffff">HTML</text>
+  <rect x="180" y="213" width="450" height="16" fill="#21262d" rx="4"/>
+  <rect x="180" y="213" width="28.0" height="16" fill="#E34C26" rx="4"/>
+  <text x="650" y="226" font-family="monospace" font-size="12" fill="#cccccc">88</text>
 
-  <text x="40" y="260" font-family="monospace" font-size="13" fill="#ffffff">INI</text>
-  <rect x="180" y="248" width="450" height="16" fill="#21262d" rx="4"/>
-  <rect x="180" y="248" width="0.7154213036565978" height="16" fill="#FFFFFF" rx="4"/>
-  <text x="650" y="260" font-family="monospace" font-size="12" fill="#ffffff">2</text>
 </svg>
