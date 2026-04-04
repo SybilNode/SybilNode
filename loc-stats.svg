@@ -2,7 +2,7 @@
   <rect width="800" height="340" fill="#000000" rx="10"/>
 
   <!-- Total lines -->
-  <text x="40" y="55" font-family="monospace" font-size="32" fill="#ffffff">2,922</text>
+  <text x="40" y="55" font-family="monospace" font-size="32" fill="#ffffff">2,930</text>
   <text x="40" y="78" font-family="monospace" font-size="13" fill="#aaaaaa">LINES OF CODE</text>
 
   <!-- Total files -->
@@ -22,8 +22,8 @@
 
   <text x="40" y="198" font-family="monospace" font-size="13" fill="#ffffff">SVG</text>
   <rect x="180" y="185" width="450" height="16" fill="#21262d" rx="4"/>
-  <rect x="180" y="185" width="196.9" height="16" fill="#888888" rx="4"/>
-  <text x="650" y="198" font-family="monospace" font-size="12" fill="#cccccc">674</text>
+  <rect x="180" y="185" width="199.3" height="16" fill="#888888" rx="4"/>
+  <text x="650" y="198" font-family="monospace" font-size="12" fill="#cccccc">682</text>
 
   <text x="40" y="226" font-family="monospace" font-size="13" fill="#ffffff">JavaScript</text>
   <rect x="180" y="213" width="450" height="16" fill="#21262d" rx="4"/>
