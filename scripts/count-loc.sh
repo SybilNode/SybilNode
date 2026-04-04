@@ -13,7 +13,7 @@ echo "Cloning repositories..."
 for REPO in $REPOS; do
     echo "Cloning $REPO..."
     TARGET="$WORKDIR/$(basename $REPO)"
-    git clone --depth 1 "https://github.com/$REPO.git" "$TARGET"
+    git clone --depth 1 "https://${{ secrets.GITHUB_TOKEN }}@github.com/$REPO.git" "$TARGET"
 done
 
 echo "Running Tokei across all cloned repos..."
