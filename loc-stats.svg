@@ -2,7 +2,7 @@
   <rect width="800" height="340" fill="#000000" rx="10"/>
 
   <!-- Total lines -->
-  <text x="40" y="55" font-family="monospace" font-size="32" fill="#ffffff">2,930</text>
+  <text x="40" y="55" font-family="monospace" font-size="32" fill="#ffffff">2,935</text>
   <text x="40" y="78" font-family="monospace" font-size="13" fill="#aaaaaa">LINES OF CODE</text>
 
   <!-- Total files -->
@@ -18,26 +18,26 @@
   <text x="40" y="170" font-family="monospace" font-size="13" fill="#ffffff">Python</text>
   <rect x="180" y="157" width="450" height="16" fill="#21262d" rx="4"/>
   <rect x="180" y="157" width="450.0" height="16" fill="#3572A5" rx="4"/>
-  <text x="650" y="170" font-family="monospace" font-size="12" fill="#cccccc">1,540</text>
+  <text x="650" y="170" font-family="monospace" font-size="12" fill="#cccccc">1,545</text>
 
   <text x="40" y="198" font-family="monospace" font-size="13" fill="#ffffff">SVG</text>
   <rect x="180" y="185" width="450" height="16" fill="#21262d" rx="4"/>
-  <rect x="180" y="185" width="199.3" height="16" fill="#888888" rx="4"/>
+  <rect x="180" y="185" width="198.6" height="16" fill="#888888" rx="4"/>
   <text x="650" y="198" font-family="monospace" font-size="12" fill="#cccccc">682</text>
 
   <text x="40" y="226" font-family="monospace" font-size="13" fill="#ffffff">JavaScript</text>
   <rect x="180" y="213" width="450" height="16" fill="#21262d" rx="4"/>
-  <rect x="180" y="213" width="110.5" height="16" fill="#F1E05A" rx="4"/>
+  <rect x="180" y="213" width="110.1" height="16" fill="#F1E05A" rx="4"/>
   <text x="650" y="226" font-family="monospace" font-size="12" fill="#cccccc">378</text>
 
   <text x="40" y="254" font-family="monospace" font-size="13" fill="#ffffff">HTML</text>
   <rect x="180" y="241" width="450" height="16" fill="#21262d" rx="4"/>
-  <rect x="180" y="241" width="25.7" height="16" fill="#E34C26" rx="4"/>
+  <rect x="180" y="241" width="25.6" height="16" fill="#E34C26" rx="4"/>
   <text x="650" y="254" font-family="monospace" font-size="12" fill="#cccccc">88</text>
 
   <text x="40" y="282" font-family="monospace" font-size="13" fill="#ffffff">Shell</text>
   <rect x="180" y="269" width="450" height="16" fill="#21262d" rx="4"/>
-  <rect x="180" y="269" width="5.3" height="16" fill="#89E051" rx="4"/>
+  <rect x="180" y="269" width="5.2" height="16" fill="#89E051" rx="4"/>
   <text x="650" y="282" font-family="monospace" font-size="12" fill="#cccccc">18</text>
 
 </svg>
