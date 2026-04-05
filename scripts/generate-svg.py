@@ -57,7 +57,11 @@ def generate_svg(loc_data, exclude_languages=None):
         exclude_languages = set()
 
     total_code  = int(loc_data.get("Total", {}).get("code",  0))
-    total_files = int(loc_data.get("Total", {}).get("files", 0))
+    total_files = sum(
+    len(stats.get("reports", []))
+    for lang, stats in loc_data.items()
+    if lang != "Total" and isinstance(stats, dict)
+    )   
 
     if total_code == 0:
         print("Warning: total code count is 0 — SVG will be empty", file=sys.stderr)
