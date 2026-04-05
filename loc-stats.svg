@@ -2,11 +2,11 @@
   <rect width="800" height="340" fill="#000000" rx="10"/>
 
   <!-- Total lines -->
-  <text x="40" y="55" font-family="monospace" font-size="32" fill="#ffffff">2,966</text>
+  <text x="40" y="55" font-family="monospace" font-size="32" fill="#ffffff">2,970</text>
   <text x="40" y="78" font-family="monospace" font-size="13" fill="#aaaaaa">LINES OF CODE</text>
 
   <!-- Total files -->
-  <text x="760" y="55" font-family="monospace" font-size="24" fill="#ffffff" text-anchor="end">0</text>
+  <text x="760" y="55" font-family="monospace" font-size="24" fill="#ffffff" text-anchor="end">73</text>
   <text x="760" y="75" font-family="monospace" font-size="12" fill="#aaaaaa" text-anchor="end">FILES</text>
 
   <!-- Divider -->
@@ -18,16 +18,16 @@
   <text x="40" y="170" font-family="monospace" font-size="13" fill="#ffffff">Python</text>
   <rect x="180" y="157" width="450" height="16" fill="#21262d" rx="4"/>
   <rect x="180" y="157" width="450.0" height="16" fill="#3572A5" rx="4"/>
-  <text x="650" y="170" font-family="monospace" font-size="12" fill="#cccccc">1,576</text>
+  <text x="650" y="170" font-family="monospace" font-size="12" fill="#cccccc">1,580</text>
 
   <text x="40" y="198" font-family="monospace" font-size="13" fill="#ffffff">SVG</text>
   <rect x="180" y="185" width="450" height="16" fill="#21262d" rx="4"/>
-  <rect x="180" y="185" width="194.7" height="16" fill="#888888" rx="4"/>
+  <rect x="180" y="185" width="194.2" height="16" fill="#888888" rx="4"/>
   <text x="650" y="198" font-family="monospace" font-size="12" fill="#cccccc">682</text>
 
   <text x="40" y="226" font-family="monospace" font-size="13" fill="#ffffff">JavaScript</text>
   <rect x="180" y="213" width="450" height="16" fill="#21262d" rx="4"/>
-  <rect x="180" y="213" width="107.9" height="16" fill="#F1E05A" rx="4"/>
+  <rect x="180" y="213" width="107.7" height="16" fill="#F1E05A" rx="4"/>
   <text x="650" y="226" font-family="monospace" font-size="12" fill="#cccccc">378</text>
 
   <text x="40" y="254" font-family="monospace" font-size="13" fill="#ffffff">HTML</text>
