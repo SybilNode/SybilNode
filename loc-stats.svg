@@ -6,7 +6,7 @@
   <text x="40" y="78" font-family="monospace" font-size="13" fill="#aaaaaa">LINES OF CODE</text>
 
   <!-- Total files -->
-  <text x="760" y="55" font-family="monospace" font-size="24" fill="#ffffff" text-anchor="end">73</text>
+  <text x="760" y="55" font-family="monospace" font-size="24" fill="#ffffff" text-anchor="end">85</text>
   <text x="760" y="75" font-family="monospace" font-size="12" fill="#aaaaaa" text-anchor="end">FILES</text>
 
   <!-- Divider -->
