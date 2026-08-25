@@ -15,8 +15,7 @@ Cybersecurity student • Ethical hacker • Always building & learning
 </td>
 <td width="50%" align="center">
   <a href="https://git.io/streak-stats">
-    <img src="https://streak-stats.demolab.com?user=SybilNode&theme=dark&hide_border=true&border_radius=6&date_format=j%20M%5B%20Y%5D"
-      alt="GitHub Streak" />
+    <img src="./profile/streak.svg" alt="GitHub Streak" />
   </a>
 </td>
 </tr>
