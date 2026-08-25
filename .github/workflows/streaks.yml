@@ -17,8 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate streak stats
-        uses: DenverCoder1/github-readme-streak-stats@main
+      - name: GitHub Readme Streak Stats Action
+        uses: DenverCoder1/github-readme-streak-stats@v1.7.0
         with:
           options: user=SybilNode&theme=dark&hide_border=true&border_radius=6&date_format=j%20M%5B%20Y%5D
           path: profile/streak.svg
